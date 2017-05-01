@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
 
     DecimalFormat VALUE_FORMAT = new DecimalFormat("0.##");
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,15 +43,11 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
         calculator = new Values(this); //instantiate the values interface
 
         Random r = new Random();
-       // randomValue = rangeMax - (rangeMax - rangeMin) + r.nextDouble();
         randomValue = rangeMin + (rangeMax - rangeMin) * r.nextDouble();
         theirValue = rangeMin + (rangeMax - rangeMin) * r.nextDouble();
 
         tvyourValue.setText("Your Random Value is: " + VALUE_FORMAT.format(randomValue));
         tvTheirValue.setText("Their Random Value is: " + VALUE_FORMAT.format(theirValue));
-
-
-       // tvyourValue.setText("Your Value is: " + Values());
 
     }
 
@@ -59,20 +56,17 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
         Double yourBid = Double.parseDouble(etyourBid.getText().toString());
         Double theirBid = Double.parseDouble(ettheirBid.getText().toString());
 
-        calculator.calculate(randomValue, yourBid, theirBid, theirValue);
+        calculator.calculate(randomValue, theirValue, yourBid, theirBid);
 
         tvyourValue.setText("Your new value is: " + VALUE_FORMAT.format(randomValue));
         tvTheirValue.setText("Their new value is: " + VALUE_FORMAT.format(theirValue));
-
 
     }
 
     public void upDateView(Double yourTotal, Double theirTotal, Double yourPayoff,
                            Double theirPayoff) {
-        //tvyourValue.setText("Your Value is: " + randomValue);
-        yourTotal = yourTotal + yourPayoff;
-        theirTotal = theirTotal + theirPayoff;
-        tvyourPayoff.setText("Your Payoff is:" + VALUE_FORMAT.format(yourPayoff));
+
+        tvyourPayoff.setText("Your Payoff is: " + VALUE_FORMAT.format(yourPayoff));
         tvyourTotal.setText("Your Total is: " + VALUE_FORMAT.format(yourTotal));
         tvtheirPayoff.setText("Their Payoff is: " + VALUE_FORMAT.format(theirPayoff));
         tvtheirTotal.setText("Their Total is: " + VALUE_FORMAT.format(theirTotal));

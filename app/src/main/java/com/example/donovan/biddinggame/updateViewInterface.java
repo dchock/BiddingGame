@@ -7,4 +7,6 @@ package com.example.donovan.biddinggame;
 public interface updateViewInterface {
     public void upDateView(Double yourTotal, Double theirTotal, Double yourPayoff,
                            Double theirPayoff);
+
+
 }
