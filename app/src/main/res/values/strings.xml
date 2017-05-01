@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">BiddingGame</string>
+    <string name="their_bid">Their Bid:</string>
+    <string name="their_payoff">Their Payoff:</string>
+    <string name="their_total">Their Total:</string>
+    <string name="your_total">Your Total:</string>
+    <string name="your_bid">Your Bid:</string>
+    <string name="their_value">Their Value:</string>
+    <string name="you_value">You Value:</string>
+    <string name="your_payoff">Your Payoff:</string>
+    <string name="button">Button</string>
+    <string name="your_value_is">Your Value is:</string>
+    <string name="calculate">Calculate</string>
+    <string name="enter_their_bid_here">Enter Their Bid Here</string>
+    <string name="enter_your_bid_here">Enter Your Bid Here</string>
+</resources>
