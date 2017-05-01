@@ -58,18 +58,21 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
 
         calculator.calculate(randomValue, theirValue, yourBid, theirBid);
 
-        tvyourValue.setText("Your new value is: " + VALUE_FORMAT.format(randomValue));
-        tvTheirValue.setText("Their new value is: " + VALUE_FORMAT.format(theirValue));
-
     }
 
     public void upDateView(Double yourTotal, Double theirTotal, Double yourPayoff,
                            Double theirPayoff) {
 
+        Random r = new Random();
+        randomValue = rangeMin + (rangeMax - rangeMin) * r.nextDouble();
+        theirValue = rangeMin + (rangeMax - rangeMin) * r.nextDouble();
+
         tvyourPayoff.setText("Your Payoff is: " + VALUE_FORMAT.format(yourPayoff));
         tvyourTotal.setText("Your Total is: " + VALUE_FORMAT.format(yourTotal));
         tvtheirPayoff.setText("Their Payoff is: " + VALUE_FORMAT.format(theirPayoff));
         tvtheirTotal.setText("Their Total is: " + VALUE_FORMAT.format(theirTotal));
+        tvyourValue.setText("Your new value is: " + VALUE_FORMAT.format(randomValue));
+        tvTheirValue.setText("Their new value is: " + VALUE_FORMAT.format(theirValue));
 
     }
 }
