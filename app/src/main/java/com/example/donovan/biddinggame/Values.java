@@ -30,14 +30,16 @@ public class Values implements CalculateInterface {
 
         if (yourBid > theirBid) {
             yourPayoff =  randomValue - yourBid;
-            yourTotal = yourTotal + yourPayoff;
+            //mainView.upDateView(yourTotal, theirTotal, yourPayoff, theirPayoff);
 
         } else if (yourBid < theirBid) {
             theirPayoff = theirBid - theirValue;
-            theirTotal = theirTotal + theirPayoff;
 
         }
 
+
+       /* yourTotal = yourTotal + yourPayoff;
+        theirTotal = theirTotal + theirPayoff; */
         mainView.upDateView(yourTotal, theirTotal, yourPayoff, theirPayoff);
 
     }

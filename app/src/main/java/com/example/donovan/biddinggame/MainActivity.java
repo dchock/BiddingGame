@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
     CalculateInterface calculator;
 
     public static Double rangeMin = 1.0;
-    public static Double rangMax = 100.0;
+    public static Double rangeMax = 100.0;
     public static Double randomValue;
     public static Double theirValue;
 
@@ -42,8 +42,9 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
         calculator = new Values(this); //instantiate the values interface
 
         Random r = new Random();
-        randomValue = rangeMin + (rangMax - rangeMin) + r.nextDouble();
-        theirValue = rangeMin + (rangMax - rangeMin) + r.nextDouble();
+       // randomValue = rangeMax - (rangeMax - rangeMin) + r.nextDouble();
+        randomValue = rangeMin + (rangeMax - rangeMin) * r.nextDouble();
+        theirValue = rangeMin + (rangeMax - rangeMin) * r.nextDouble();
 
         tvyourValue.setText("Your Random Value is: " + VALUE_FORMAT.format(randomValue));
         tvTheirValue.setText("Their Random Value is: " + VALUE_FORMAT.format(theirValue));
@@ -59,11 +60,18 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
         Double theirBid = Double.parseDouble(ettheirBid.getText().toString());
 
         calculator.calculate(randomValue, yourBid, theirBid, theirValue);
+
+        tvyourValue.setText("Your new value is: " + VALUE_FORMAT.format(randomValue));
+        tvTheirValue.setText("Their new value is: " + VALUE_FORMAT.format(theirValue));
+
+
     }
 
     public void upDateView(Double yourTotal, Double theirTotal, Double yourPayoff,
                            Double theirPayoff) {
         //tvyourValue.setText("Your Value is: " + randomValue);
+        yourTotal = yourTotal + yourPayoff;
+        theirTotal = theirTotal + theirPayoff;
         tvyourPayoff.setText("Your Payoff is:" + VALUE_FORMAT.format(yourPayoff));
         tvyourTotal.setText("Your Total is: " + VALUE_FORMAT.format(yourTotal));
         tvtheirPayoff.setText("Their Payoff is: " + VALUE_FORMAT.format(theirPayoff));
